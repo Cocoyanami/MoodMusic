@@ -1,6 +1,6 @@
 package com.example.chatmusc
 
-import android.util.Log
+
 import androidx.compose.runtime.mutableStateListOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -13,10 +13,12 @@ class ChatViewModel : ViewModel() {
     val messageList by lazy {
         mutableStateListOf<MessageModel>()
     }
+
     val generativeModel : GenerativeModel = GenerativeModel(
         modelName = "gemini-1.5-flash",
         apiKey = Constants.apiKey
     )
+
     fun sendMessage(question : String){
         viewModelScope.launch {
             try{
